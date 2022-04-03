@@ -4,6 +4,7 @@ let errorMsg = document.getElementById("error-msg");
 let body = document.querySelector("body");
 let gameContainer = document.getElementById("game-container");
 let gameWinner = document.getElementById("game-winner");
+let infoSavedState = false;
 
 onload = function () {
     squares.forEach((square) => {
@@ -12,11 +13,11 @@ onload = function () {
 };
 
 function handleClick(event) {
-    if (sendPlayerInfo() == true) {
+    if (infoSavedState == false) {
         return;
     }
 
-    if (sendPlayerInfo() == false) {
+    if (infoSavedState == true) {
         let square = event.target;
         let position = square.id;
 
@@ -51,19 +52,20 @@ function resetMatch() {
 }
 function resetGame() {
     board = ["", "", "", "", "", "", "", "", ""];
-    player1 = "";
-    player2 = "";
+
+    playerName1 = "";
+    playerName2 = "";
     playerTime = 0;
     gameOver = false;
 
-    infoPlayers.children[1].value = "";
-    infoPlayers.children[3].value = "";
+    playerNameInput1.value = "";
+    playerNameInput2.value = "";
 
-    gameActualPlayers.children[0].children[0].innerHTML = "";
-    gameActualPlayers.children[1].children[0].innerHTML = "";
+    player1.innerHTML = "";
+    player2.innerHTML = "";
 
-    gameActualPlayers.children[0].children[1].classList.remove("fa-solid", "fa-arrow-left");
-    gameActualPlayers.children[1].children[1].classList.remove("fa-solid", "fa-arrow-left");
+    playerTimeIcon1.classList.remove("fa-solid", "fa-arrow-left");
+    playerTimeIcon2.classList.remove("fa-solid", "fa-arrow-left");
 
     squares.forEach((square) => {
         square.innerHTML = "";
@@ -71,22 +73,24 @@ function resetGame() {
 }
 
 function sendPlayerInfo() {
-    if (infoPlayers.children[1].value == "" || infoPlayers.children[3].value == "") {
+    if (playerNameInput1.value == "" || playerNameInput2.value == "") {
         errorMsg.classList.add("empty-value");
-        return true;
-    }
-    if (infoPlayers.children[1].value != "") {
-        player1 = infoPlayers.children[1].value;
-        player2 = infoPlayers.children[3].value;
 
-        gameActualPlayers.children[0].children[0].innerHTML = player1;
-        gameActualPlayers.children[1].children[0].innerHTML = player2;
+        return (infoSavedState = false);
+    }
+
+    if (playerNameInput1.value != "" || playerNameInput2.value != "") {
+        playerName1 = playerNameInput1.value;
+        playerName2 = playerNameInput2.value;
+
+        player1.innerHTML = playerName1;
+        player2.innerHTML = playerName2;
 
         errorMsg.classList.remove("empty-value");
 
         playerTimeFunction();
 
-        return false;
+        return (infoSavedState = true);
     }
 }
 

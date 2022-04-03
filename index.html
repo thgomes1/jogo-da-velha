@@ -19,8 +19,8 @@
             <div id="game-content">
                 <div id="game">
                     <div id="game-actual-players">
-                        <p>JOGADOR 1: <span></span><i class=""></i></p>
-                        <p>JOGADOR 2: <span></span><i class=""></i></p>
+                        <p>JOGADOR 1: <span id="player1"></span><i id="player-time-icon1" class=""></i></p>
+                        <p>JOGADOR 2: <span id="player2"></span><i id="player-time-icon2" class=""></i></p>
                     </div>
 
                     <div class="stage">
@@ -45,11 +45,11 @@
                 <div id="info">
                     <div id="info-players">
                         <label for="">Inserir nome do Jogador 1</label>
-                        <input type="text" name="" id="" placeholder="Jogador 1" />
+                        <input type="text" name="" id="player-name-input1" placeholder="Jogador 1" />
                         <label for="">Inserir nome do Jogador 2</label>
-                        <input type="text" name="" id="" placeholder="Jogador 2" />
+                        <input type="text" name="" id="player-name-input2" placeholder="Jogador 2" />
                         <p id="error-msg">*INSIRA TODOS OS JOGADORES*</p>
-                        <button onclick="sendPlayerInfo()">Salvar</button>
+                        <button onclick="sendPlayerInfo()">Salvar e iniciar</button>
                     </div>
 
                     <div id="info-buttons">

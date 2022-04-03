@@ -1,6 +1,12 @@
 let board = ["", "", "", "", "", "", "", "", ""];
-let player1 = "";
-let player2 = "";
+let playerName1 = "";
+let playerName2 = "";
+let playerNameInput1 = document.getElementById("player-name-input1");
+let playerNameInput2 = document.getElementById("player-name-input2");
+let playerTimeIcon1 = document.getElementById("player-time-icon1");
+let playerTimeIcon2 = document.getElementById("player-time-icon2");
+let player1 = document.getElementById("player1");
+let player2 = document.getElementById("player2");
 let playerTime = 0;
 let symbols = ["./assets/o.png", "./assets/x.png"];
 let gameOver = false;
@@ -46,7 +52,6 @@ function isWin() {
         let pos3 = seq[2];
 
         if (board[pos1] == board[pos2] && board[pos1] == board[pos3] && board[pos1] != "") {
-            console.log("eu");
             return true;
         }
     }
@@ -56,22 +61,20 @@ function isWin() {
 
 function checkWinner() {
     if (playerTime === 0) {
-        let winner = player1;
-        return winner;
+        return playerName1;
     }
     if (playerTime === 1) {
-        let winner = player2;
-        return winner;
+        return playerName2;
     }
 }
 
 function playerTimeFunction() {
     if (playerTime === 0) {
-        gameActualPlayers.children[1].children[1].classList.remove("fa-solid", "fa-arrow-left");
-        gameActualPlayers.children[0].children[1].classList.add("fa-solid", "fa-arrow-left");
+        playerTimeIcon2.classList.remove("fa-solid", "fa-arrow-left");
+        playerTimeIcon1.classList.add("fa-solid", "fa-arrow-left");
     }
     if (playerTime === 1) {
-        gameActualPlayers.children[0].children[1].classList.remove("fa-solid", "fa-arrow-left");
-        gameActualPlayers.children[1].children[1].classList.add("fa-solid", "fa-arrow-left");
+        playerTimeIcon1.classList.remove("fa-solid", "fa-arrow-left");
+        playerTimeIcon2.classList.add("fa-solid", "fa-arrow-left");
     }
 }
