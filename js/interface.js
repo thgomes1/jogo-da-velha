@@ -13,11 +13,11 @@ onload = function () {
 };
 
 function handleClick(event) {
-    if (infoSavedState == false) {
+    if (!sendPlayerInfo()) {
         return;
     }
 
-    if (infoSavedState == true) {
+    if (sendPlayerInfo()) {
         let square = event.target;
         let position = square.id;
 
@@ -76,7 +76,7 @@ function sendPlayerInfo() {
     if (playerNameInput1.value == "" || playerNameInput2.value == "") {
         errorMsg.classList.add("empty-value");
 
-        return (infoSavedState = false);
+        return false;
     }
 
     if (playerNameInput1.value != "" || playerNameInput2.value != "") {
@@ -90,7 +90,7 @@ function sendPlayerInfo() {
 
         playerTimeFunction();
 
-        return (infoSavedState = true);
+        return true;
     }
 }
 

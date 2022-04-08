@@ -10,14 +10,11 @@ html {
     font-size: 62.5%;
 }
 body {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow: hidden;
-    background-color: rgb(27, 25, 20);
+    background-color: #f7d08a;
 }
 button {
     cursor: pointer;
@@ -28,14 +25,15 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 10px;
-    overflow: hidden;
+    overflow: auto;
+    width: 100%;
+    height: 100vh;
     transition: 500ms;
 }
 
 #game-header {
     width: 100%;
-    height: 80px;
+    height: 65px;
 
     display: flex;
     justify-content: center;
@@ -83,15 +81,14 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
 
-    background-color: #f7d08a;
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 
 #game {
-    padding: 5rem;
+    padding: 2rem 0rem 0rem 0rem;
 }
 
 #game-actual-players {
@@ -117,10 +114,9 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    border-left: 2px solid #9d5c0d;
-    width: 320px;
-    height: 100%;
+    flex-direction: row;
+
+    width: 375px;
 }
 #info-players {
     display: flex;
@@ -138,17 +134,18 @@ button {
 }
 #info-players input {
     height: 35px;
-    width: 60%;
     text-align: center;
     font-size: 1.5rem;
-    padding: 0px 10px;
+    padding: 10px 0px;
+    width: 100%;
 
     border: 0;
     border-radius: 10px;
 }
 #info-players button {
     border: 0;
-    padding: 5px 15px;
+    width: 150px;
+    height: 40px;
     border-radius: 10px;
 }
 
@@ -156,14 +153,14 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
 }
 
 #info-buttons button {
+    height: 30px;
     border: 0;
     border-radius: 10px;
-    padding: 5px;
     margin: 5px;
     width: 40%;
 }
@@ -171,8 +168,8 @@ button {
 .square {
     position: relative;
     display: inline-block;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin: 2.5px;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
@@ -197,4 +194,49 @@ button {
 }
 #error-msg.empty-value {
     opacity: 100%;
+}
+
+@media (max-height: 840px) {
+    #game-container {
+        height: 100%;
+    }
+}
+@media (max-width: 420px) {
+    #game-winner {
+        width: 90%;
+        font-size: 1.5rem;
+    }
+    #game-content {
+        padding: 2.5rem 0rem;
+    }
+
+    .square {
+        width: 100px;
+        height: 100px;
+    }
+    #game {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+    }
+    #info-players input {
+        width: 70%;
+    }
+}
+@media (max-width: 350px) {
+    .square {
+        width: 85px;
+        height: 85px;
+    }
+    #game-actual-players {
+        width: 95%;
+    }
 }

@@ -44,17 +44,16 @@
 
                 <div id="info">
                     <div id="info-players">
+                        <div id="info-buttons">
+                            <button onclick="resetMatch()">Novo jogo</button>
+                            <button id="resetBtn" onclick="resetGame()">Resetar dados</button>
+                        </div>
                         <label for="">Inserir nome do Jogador 1</label>
                         <input type="text" name="" id="player-name-input1" placeholder="Jogador 1" />
                         <label for="">Inserir nome do Jogador 2</label>
                         <input type="text" name="" id="player-name-input2" placeholder="Jogador 2" />
                         <p id="error-msg">*INSIRA TODOS OS JOGADORES*</p>
                         <button onclick="sendPlayerInfo()">Salvar e iniciar</button>
-                    </div>
-
-                    <div id="info-buttons">
-                        <button onclick="resetMatch()">Novo jogo</button>
-                        <button id="resetBtn" onclick="resetGame()">Resetar dados</button>
                     </div>
                 </div>
             </div>
